@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4 - Date of Birth Validation</title>
+</head>
+<body>
+    <form id="dobForm">
+        <fieldset style="display: inline-block; padding: 10px;">
+            <legend><b>Date of Birth</b></legend>
+            <div style="display: flex; gap: 10px; align-items: center; text-align: center;">
+                <div>
+                    <small>dd</small><br>
+                    <input type="text" id="day" style="width: 40px;">
+                </div>
+                /
+                <div>
+                    <small>mm</small><br>
+                    <input type="text" id="month" style="width: 40px;">
+                </div>
+                /
+                <div>
+                    <small>yyyy</small><br>
+                    <input type="text" id="year" style="width: 60px;">
+                </div>
+            </div>
+            <hr>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+
+    <script>
+        document.getElementById('dobForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const d = document.getElementById('day').value.trim();
+            const m = document.getElementById('month').value.trim();
+            const y = document.getElementById('year').value.trim();
+
+            // Rule i: Cannot be empty
+            if (d === "" || m === "" || y === "") {
+                alert("Validation Error: All date fields must be filled.");
+                return;
+            }
+
+            // Rule ii: Range validation
+            const day = parseInt(d);
+            const month = parseInt(m);
+            const year = parseInt(y);
+
+            if (isNaN(day) || isNaN(month) || isNaN(year)) {
+                alert("Validation Error: Please enter valid numbers.");
+            } else if (day < 0 || day > 31) {
+                alert("Validation Error: Day (dd) must be between 0-31.");
+            } else if (month < 1 || month > 12) {
+                alert("Validation Error: Month (mm) must be between 1-12.");
+            } else if (year < 1900 || year > 2016) {
+                alert("Validation Error: Year (yyyy) must be between 1900-2016.");
+            } else {
+                alert("Success: Date of Birth is valid!");
+            }
+        });
+    </script>
+</body>
+</html>

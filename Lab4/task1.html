@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1 - Name Validation</title>
+</head>
+<body>
+    <form id="nameForm">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" style="width: 200px;"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nameValue = document.getElementById('name').value.trim();
+            
+            const nameRegex = /^[a-zA-Z][a-zA-Z.\-]*(\s+[a-zA-Z.\-]+)+$/;
+
+            if (nameValue === "") {
+                alert("Validation Error: Name cannot be empty.");
+            } else if (!nameRegex.test(nameValue)) {
+                alert("Validation Error:\n1. Must start with a letter.\n2. Must contain at least two words.\n3. Only letters, dots(.), and dashes(-) allowed.");
+            } else {
+                alert("Success: Form submitted!");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 5 - Degree Validation</title>
+</head>
+<body>
+    <form id="degreeForm">
+        <fieldset style="display: inline-block; padding: 10px;">
+            <legend><b>Degree</b></legend>
+            <input type="checkbox" name="degree" value="SSC" id="ssc"> <label for="ssc">SSC</label>
+            <input type="checkbox" name="degree" value="HSC" id="hsc"> <label for="hsc">HSC</label>
+            <input type="checkbox" name="degree" value="BSc" id="bsc"> <label for="bsc">BSc</label>
+        </fieldset>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('degreeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Rule i: At least one has to be selected
+            const checkboxes = document.querySelectorAll('input[name="degree"]:checked');
+            
+            if (checkboxes.length === 0) {
+                alert("Validation Error: At least one degree has to be selected.");
+            } else {
+                alert("Success: Form submitted!");
+            }
+        });
+    </script>
+</body>
+</html>

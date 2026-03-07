@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2 - Email Validation</title>
+</head>
+<body>
+    <form id="emailForm">
+        <label for="email">Email</label><br>
+        <input type="text" id="email" style="width: 200px;">
+        <span title="hint: sample@example.com" style="cursor: help; border: 1px solid #ccc; padding: 0 5px;">i</span>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailValue = document.getElementById('email').value.trim();
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailValue === "") {
+                alert("Validation Error: Email cannot be empty.");
+            } else if (!emailRegex.test(emailValue)) {
+                alert("Validation Error: Must be a valid email address (e.g., anything@example.com).");
+            } else {
+                alert("Success: Email is valid!");
+            }
+        });
+    </script>
+</body>
+</html>

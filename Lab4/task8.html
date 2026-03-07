@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 8 - Person Profile</title>
+    <style>
+        table { border-collapse: collapse; width: 450px; background-color: #f2f2f2; }
+        td { border: 1px solid #888; padding: 8px; vertical-align: middle; }
+        .center-text { text-align: center; font-weight: bold; font-size: 1.2em; }
+        .right-align { text-align: right; }
+    </style>
+</head>
+<body>
+    <form id="fullProfileForm">
+        <table>
+            <tr>
+                <td colspan="3" class="center-text">PERSON PROFILE</td>
+            </tr>
+            <tr>
+                <td width="30%">Name</td>
+                <td><input type="text" id="pName" style="width: 90%;"></td>
+                <td width="5%"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="pEmail" style="width: 90%;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="pGender" value="Male"> Male
+                    <input type="radio" name="pGender" value="Female"> Female
+                    <input type="radio" name="pGender" value="Other"> Other
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input type="text" id="pDd" size="2"> /
+                    <input type="text" id="pMm" size="2"> /
+                    <input type="text" id="pYyyy" size="4"> 
+                    <small><i>(dd/mm/yyyy)</i></small>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td>
+                    <select id="pBlood">
+                        <option value="">Select Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>
+                    <input type="checkbox" name="pDegree" value="SSC"> SSC
+                    <input type="checkbox" name="pDegree" value="HSC"> HSC
+                    <input type="checkbox" name="pDegree" value="BSc"> BSc.
+                    <input type="checkbox" name="pDegree" value="MSc"> MSc.
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td colspan="2"><input type="file" id="pPhoto"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="height: 30px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="right-align">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        document.getElementById('fullProfileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 1. Name Validation
+            const name = document.getElementById('pName').value.trim();
+            const nameRegex = /^[a-zA-Z][a-zA-Z.\-]*(\s+[a-zA-Z.\-]+)+$/;
+            if (name === "" || !nameRegex.test(name)) {
+                alert("Name Error: Must start with a letter, contain 2 words, and only use a-z, dot, or dash.");
+                return;
+            }
+
+            // 2. Email Validation
+            const email = document.getElementById('pEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "" || !emailRegex.test(email)) {
+                alert("Email Error: Please enter a valid email address.");
+                return;
+            }
+
+            // 3. Gender Validation
+            if (!document.querySelector('input[name="pGender"]:checked')) {
+                alert("Gender Error: Please select a gender.");
+                return;
+            }
+
+            // 4. DOB Validation
+            const d = document.getElementById('pDd').value.trim();
+            const m = document.getElementById('pMm').value.trim();
+            const y = document.getElementById('pYyyy').value.trim();
+            if (d === "" || m === "" || y === "") {
+                alert("DOB Error: Date fields cannot be empty.");
+                return;
+            }
+            if (d < 0 || d > 31 || m < 1 || m > 12 || y < 1900 || y > 2016) {
+                alert("DOB Error: dd (0-31), mm (1-12), yyyy (1900-2016).");
+                return;
+            }
+
+            // 5. Blood Group
+            if (document.getElementById('pBlood').value === "") {
+                alert("Blood Group Error: Please select a blood group.");
+                return;
+            }
+
+            // 6. Degree Validation
+            if (document.querySelectorAll('input[name="pDegree"]:checked').length === 0) {
+                alert("Degree Error: Select at least one degree.");
+                return;
+            }
+
+            // 7. Photo Validation
+            if (document.getElementById('pPhoto').value === "") {
+                alert("Photo Error: Please upload a file.");
+                return;
+            }
+
+            alert("Validation Successful! Profile Submitted.");
+        });
+    </script>
+</body>
+</html>

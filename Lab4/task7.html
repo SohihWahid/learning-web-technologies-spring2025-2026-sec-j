@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7 - Profile Picture</title>
+</head>
+<body>
+    <form id="profilePicForm">
+        <fieldset style="width: 350px;">
+            <legend><b>Profile Picture</b></legend>
+            <label for="userId">User Id </label>
+            <input type="text" id="userId"><br><br>
+            
+            <label for="picture">Picture </label>
+            <input type="file" id="picture">
+            <hr>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+
+    <script>
+        document.getElementById('profilePicForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userId = document.getElementById('userId').value.trim();
+            const picture = document.getElementById('picture').value;
+
+            // Rule i: UserId cannot be empty and has to be a positive number
+            if (userId === "") {
+                alert("User Id cannot be empty.");
+            } else if (isNaN(userId) || Number(userId) <= 0) {
+                alert("User Id must be a positive number.");
+            } 
+            // Rule ii: Picture cannot be empty
+            else if (picture === "") {
+                alert("Please select a picture file.");
+            } else {
+                alert("Success: Profile picture submitted!");
+            }
+        });
+    </script>
+</body>
+</html>
