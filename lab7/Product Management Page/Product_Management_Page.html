@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Page</title>
+    <link rel="stylesheet" href="Product_Management_Page.css">
+</head>
+<body>
+    <div class="bg-image"></div>
+
+    <div class="glass-container">
+        <h2>Product Management</h2>
+        
+        <div class="input-group">
+            <select id="productSelect">
+                <option value="278">Product 1 - $278</option>
+                <option value="599">Product 2 - $599</option>
+                <option value="788">Product 3 - $788</option>
+                <option value="155">Product 4 - $155</option>
+                <option value="868">Product 5 - $868</option>
+            </select>
+            <label class="active-label">Select Product</label>
+        </div>
+
+        <div class="input-group">
+            <input type="number" id="quantity" required placeholder=" ">
+            <label for="quantity">Quantity</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="totalPrice" readonly value="$0.00">
+            <label class="active-label">Total Cost</label>
+        </div>
+
+        <button id="purchaseBtn" class="btn-purchase">Complete Purchase</button>
+    </div>
+
+    <script src="Product_Management_Page.js"></script>
+</body>
+</html>

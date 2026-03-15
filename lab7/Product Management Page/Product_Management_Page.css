@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bg-image {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop'); /* High-end abstract live-style image */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 30px;
+    width: 380px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    color: white;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+
+.input-group {
+    position: relative;
+    margin-bottom: 40px; 
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 12px 5px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#productSelect option {
+    background: #222; 
+    color: white;
+}
+
+.input-group label {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.active-label {
+    top: -15px !important; 
+    font-size: 13px;
+    color: #00ffd0;
+    font-weight: 600;
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #00ffd0;
+}
+
+.btn-purchase {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #00ffd0, #008cff);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 255, 208, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-purchase:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(0, 255, 208, 0.4);
+}
+
+.btn-purchase:active {
+    transform: translateY(1px);
+}
