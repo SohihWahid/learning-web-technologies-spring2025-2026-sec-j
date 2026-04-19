@@ -1,0 +1,48 @@
+table.custom-table {
+    width: 95%;
+    height: 300px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table.custom-table td {
+    border: 1px solid #000;
+}
+
+table.custom-table tr:nth-child(1) {
+    height: 25%;
+}
+
+table.custom-table tr:nth-child(2) {
+    height: 50%;
+}
+
+table.custom-table tr:nth-child(3) {
+    height: 25%;
+}
+
+table.custom-table .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+table.custom-table .company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+table.custom-table .header-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #000;
+}
+
+table.custom-table .header-links a:first-child {
+    margin-left: 0;
+}
+h5 {
+    text-align: center;
+    font-size: 0.8rem;
+}
