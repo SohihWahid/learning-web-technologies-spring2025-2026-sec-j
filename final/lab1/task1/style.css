@@ -1,0 +1,70 @@
+form {
+    width: 30%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    transition: background-color 1s faster-start; 
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"]{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+input[type="text"]:focus{
+    border-color: #007bff;
+    outline: none;
+}
+#echo {
+    color: #28a745;  /* Green text */
+    font-size: 18px;
+    margin: 15px 0;
+    padding: 10px;
+    border-left: 4px solid #28a745;
+    padding-left: 15px;
+}
+#echo:hover{
+    color: transparent;
+    background-color: #28a745;
+    text-align: center;
+    transition: all 0.30s ease;
+    position: relative;
+}
+#echo:hover::after {
+    content: "Hold the submit button to get to the handler page.";
+    padding: 10px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.btn-primary:click{
+    background-color: red;
+    transition: all 1s ease;
+}
+.btn-longpress {
+    background-color: red !important;
+}
