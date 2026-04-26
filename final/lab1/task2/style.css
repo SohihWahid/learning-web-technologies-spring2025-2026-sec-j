@@ -1,0 +1,29 @@
+fieldset{
+    width: 30%;
+}
+
+#email{
+    width: 95%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+}
+#email:focus{
+    border-color: #007bff;
+    outline: none;
+}
+#btn{
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin: 5px;
+    cursor: pointer;
+}
+#btn:hover{
+    background-color: #0056b3;
+}
