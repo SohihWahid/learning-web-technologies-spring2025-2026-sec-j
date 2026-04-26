@@ -13,10 +13,15 @@
                 <tr>
                     <td>
                         <div class="header-row">
-                            <div class="company-name">Company</div>
+                            <nav class="navbar">
+                                <div class="logo">
+                                    <span class="logo-icon">X</span>
+                                    <span class="logo-text">Company</span>
+                                </div>
+                            </nav>
                             <div class="header-links">
                                 <a href="Home">Home</a>
-                                <a href="Login">Login</a>
+                                <a href="login.php">Login</a>
                                 <a href="registration.php">Registration</a>
                             </div>
                         </div>
